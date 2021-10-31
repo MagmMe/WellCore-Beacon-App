@@ -33,6 +33,9 @@ struct ContentView: View {
                     .multilineTextAlignment(.leading)
                     .padding()
                 Text("There are four states of distance for beacon:")
+                    .font(.headline)
+                    .multilineTextAlignment(.leading)
+                    .padding()
                 
                 Spacer()
                 HStack{
