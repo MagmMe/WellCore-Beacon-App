@@ -19,7 +19,7 @@ struct ContentView: View {
     var body: some View {
         ZStack{
             gradinetBg.ignoresSafeArea()
-            VStack{
+            VStack(alignment: .leading){
                 Text("Wellcore Beacon")
                     .font(.callout)
                     .multilineTextAlignment(.leading)
@@ -29,6 +29,11 @@ struct ContentView: View {
                     .bold()
                     .multilineTextAlignment(.leading)
                     .padding()
+                Text("Ad watch what will happens...")
+                    .multilineTextAlignment(.leading)
+                    .padding()
+                Text("There are four states of distance for beacon:")
+                
                 Spacer()
                 HStack{
                 }
