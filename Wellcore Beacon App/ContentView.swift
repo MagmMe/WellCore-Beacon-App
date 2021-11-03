@@ -9,6 +9,9 @@ import Combine
 import CoreLocation
 import SwiftUI
 
+
+// Beacon Detector Class
+
 class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate{
 
     var locationManager: CLLocationManager?
@@ -63,32 +66,121 @@ struct ContentView: View {
     endPoint: .bottomTrailing)
     
     var body: some View {
-        ZStack{
-            gradinetBg.ignoresSafeArea()
-            VStack(alignment: .leading){
-                Text("Wellcore Beacon")
-                    .font(.callout)
-                    .multilineTextAlignment(.leading)
-                    .padding()
-                Text("Just put beacon near to your IPhone.")
-                    .font(.largeTitle)
-                    .bold()
-                    .multilineTextAlignment(.leading)
-                    .padding()
-                Text("Ad watch what will happens...")
-                    .multilineTextAlignment(.leading)
-                    .padding()
-                Text("There are four states of distance for beacon:")
-                    .font(.headline)
-                    .multilineTextAlignment(.leading)
-                    .padding()
-                
-                Spacer()
-                HStack{
+        
+        @ObservedObject var detector = BeaconDetector()
+        
+        if detector.lastDistance == .immediate {
+            return ZStack{
+                 gradinetBg.ignoresSafeArea()
+                 VStack(alignment: .leading){
+                     Text("Wellcore Beacon")
+                         .font(.callout)
+                         .multilineTextAlignment(.leading)
+                         .padding()
+                     Text("Just put beacon near to your IPhone.")
+                         .font(.largeTitle)
+                         .bold()
+                         .multilineTextAlignment(.leading)
+                         .padding()
+                     Text("Ad watch what will happens...")
+                         .multilineTextAlignment(.leading)
+                         .padding()
+                     Text("There are four states of distance for beacon:")
+                         .font(.headline)
+                         .multilineTextAlignment(.leading)
+                         .padding()
+                     
+                     Spacer()
+                     HStack{
+                     }
+                 }
+                 .foregroundColor(.white)
+                 }
+        }else if detector.lastDistance == .near {
+            return ZStack{
+                 gradinetBg.ignoresSafeArea()
+                 VStack(alignment: .leading){
+                     Text("Wellcore Beacon")
+                         .font(.callout)
+                         .multilineTextAlignment(.leading)
+                         .padding()
+                     Text("Just put beacon near to your IPhone.")
+                         .font(.largeTitle)
+                         .bold()
+                         .multilineTextAlignment(.leading)
+                         .padding()
+                     Text("Ad watch what will happens...")
+                         .multilineTextAlignment(.leading)
+                         .padding()
+                     Text("There are four states of distance for beacon:")
+                         .font(.headline)
+                         .multilineTextAlignment(.leading)
+                         .padding()
+                     
+                     Spacer()
+                     HStack{
+                     }
+                 }
+                 .foregroundColor(.white)
+                 }
+        }else if detector.lastDistance == .far {
+            return ZStack{
+                 gradinetBg.ignoresSafeArea()
+                 VStack(alignment: .leading){
+                     Text("Wellcore Beacon")
+                         .font(.callout)
+                         .multilineTextAlignment(.leading)
+                         .padding()
+                     Text("Just put beacon near to your IPhone.")
+                         .font(.largeTitle)
+                         .bold()
+                         .multilineTextAlignment(.leading)
+                         .padding()
+                     Text("Ad watch what will happens...")
+                         .multilineTextAlignment(.leading)
+                         .padding()
+                     Text("There are four states of distance for beacon:")
+                         .font(.headline)
+                         .multilineTextAlignment(.leading)
+                         .padding()
+                     
+                     Spacer()
+                     HStack{
+                     }
+                 }
+                 .foregroundColor(.white)
+                 }
+        } else {
+            
+           return ZStack{
+                gradinetBg.ignoresSafeArea()
+                VStack(alignment: .leading){
+                    Text("Wellcore Beacon")
+                        .font(.callout)
+                        .multilineTextAlignment(.leading)
+                        .padding()
+                    Text("Just put beacon near to your IPhone.")
+                        .font(.largeTitle)
+                        .bold()
+                        .multilineTextAlignment(.leading)
+                        .padding()
+                    Text("Ad watch what will happens...")
+                        .multilineTextAlignment(.leading)
+                        .padding()
+                    Text("There are four states of distance for beacon:")
+                        .font(.headline)
+                        .multilineTextAlignment(.leading)
+                        .padding()
+                    
+                    Spacer()
+                    HStack{
+                    }
                 }
-            }
-            .foregroundColor(.white)
-            }
+                .foregroundColor(.white)
+                }
+        }
+        
+       
         }
     }
 
