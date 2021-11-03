@@ -56,28 +56,53 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate{
     }
 }
 
+// Screens for
+
 struct ContentView: View {
     
-    let gradinetBg = LinearGradient(gradient: Gradient(colors: [
+    @ObservedObject var detector = BeaconDetector()
+    
+    let gradinetOne = LinearGradient(gradient: Gradient(colors: [
         Color.purple,
         Color.red
     ]),
     startPoint: .topLeading,
     endPoint: .bottomTrailing)
     
+    
+    let gradinetTwo = LinearGradient(gradient: Gradient(colors: [
+        Color.blue,
+        Color.orange
+    ]),
+    startPoint: .topLeading,
+    endPoint: .bottomTrailing)
+    
+    let gradinetThree = LinearGradient(gradient: Gradient(colors: [
+        Color.blue,
+        Color.purple
+    ]),
+    startPoint: .topLeading,
+    endPoint: .bottomTrailing)
+    
+    let gradinetFour = LinearGradient(gradient: Gradient(colors: [
+        Color.green,
+        Color.pink
+    ]),
+    startPoint: .topLeading,
+    endPoint: .bottomTrailing)
+    
+    
     var body: some View {
-        
-        @ObservedObject var detector = BeaconDetector()
         
         if detector.lastDistance == .immediate {
             return ZStack{
-                 gradinetBg.ignoresSafeArea()
+                 gradinetOne.ignoresSafeArea()
                  VStack(alignment: .leading){
                      Text("Wellcore Beacon")
                          .font(.callout)
                          .multilineTextAlignment(.leading)
                          .padding()
-                     Text("Just put beacon near to your IPhone.")
+                     Text("Very close")
                          .font(.largeTitle)
                          .bold()
                          .multilineTextAlignment(.leading)
@@ -98,13 +123,13 @@ struct ContentView: View {
                  }
         }else if detector.lastDistance == .near {
             return ZStack{
-                 gradinetBg.ignoresSafeArea()
+                 gradinetTwo.ignoresSafeArea()
                  VStack(alignment: .leading){
                      Text("Wellcore Beacon")
                          .font(.callout)
                          .multilineTextAlignment(.leading)
                          .padding()
-                     Text("Just put beacon near to your IPhone.")
+                     Text("Close")
                          .font(.largeTitle)
                          .bold()
                          .multilineTextAlignment(.leading)
@@ -125,13 +150,13 @@ struct ContentView: View {
                  }
         }else if detector.lastDistance == .far {
             return ZStack{
-                 gradinetBg.ignoresSafeArea()
+                 gradinetThree.ignoresSafeArea()
                  VStack(alignment: .leading){
                      Text("Wellcore Beacon")
                          .font(.callout)
                          .multilineTextAlignment(.leading)
                          .padding()
-                     Text("Just put beacon near to your IPhone.")
+                     Text("Near")
                          .font(.largeTitle)
                          .bold()
                          .multilineTextAlignment(.leading)
@@ -153,13 +178,13 @@ struct ContentView: View {
         } else {
             
            return ZStack{
-                gradinetBg.ignoresSafeArea()
+                gradinetFour.ignoresSafeArea()
                 VStack(alignment: .leading){
                     Text("Wellcore Beacon")
                         .font(.callout)
                         .multilineTextAlignment(.leading)
                         .padding()
-                    Text("Just put beacon near to your IPhone.")
+                    Text("Far away")
                         .font(.largeTitle)
                         .bold()
                         .multilineTextAlignment(.leading)
