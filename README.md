@@ -7,4 +7,4 @@ Version 1.0
 Update CCL Location Manager. 
 
 V2.0
-Update for two or more beacons
+Update for two or more beacons.
